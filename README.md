@@ -6,7 +6,6 @@ Introduction
 A [cover tree](https://en.wikipedia.org/wiki/Cover_tree) is a data-structure for efficiently finding nearest neighbors between points in a high dimensional space.
 
 ofxCoverTree makes it easy to use [CoverTree](https://github.com/manzilzaheer/CoverTree/) in openFrameworks.
-
 #####All credit for the actual core implementation of the cover tree goes to the original authors, my part was to clean up and document the API, and restructuring the code to make it easier to use.
 
 This project uses no openframeworks specific code, but the folder structure is so as to be easily used as an openframeworks addon.
@@ -14,6 +13,13 @@ This project uses no openframeworks specific code, but the folder structure is s
 This implementation supports parallel tree construction and multiple concurrent readers (but only a single writer) using the `Multi` suffixed methods. 
 
 Performance when compiled in release mode is often 10-100x greater than in debug mode.
+
+Installation
+------------
+Copy into your addons folder (e.g `git clone https://github.com/aman-tiwari/ofxCoverTree`).
+
+
+*Optional:* Run `make` in the downloaded folder to create the benchmark.
 
 Usage
 ------------
@@ -155,15 +161,16 @@ Builds the cover tree using a work-stealing fork-join. Blocks till the cover tre
 #####`ofxCoverTree::CoverTree<point, numeric> get_result()`
 Returns the built cover tree.
 
+Examples
+------------
+* [example-emoji](example-emoji/)
+	* This example consists of image-space k-nearest-neighbour search over 6480 emoji. Each emoji is unrolled into a feature vector of `4096` dimensions (32 * 32 * 4).
+	* Each row is one row of search results, with the leftmost emoji being the search query.
+	* Press `up` and `down` to change the number of neighbours searched for, and `b` to switch between brute-force and cover-tree search.
+
 License
 -------
 Apache 2.0
-
-Installation
-------------
-Copy into your addons folder (e.g `git clone https://github.com/aman-tiwari/ofxCoverTree`).
-
-Run `make` in the downloaded folder to create the benchmark.
 
 Dependencies
 ------------
