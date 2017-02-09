@@ -21,6 +21,13 @@ Copy into your addons folder (e.g `git clone https://github.com/aman-tiwari/ofxC
 
 *Optional:* Run `make` in the downloaded folder to create the benchmark.
 
+Examples
+------------
+* [example-emoji](example-emoji/)
+	* This example consists of image-space k-nearest-neighbour search over 6480 emoji. Each emoji is unrolled into a feature vector of `4096` dimensions (32 * 32 * 4).
+	* Each row is one row of search results, with the leftmost emoji being the search query.
+	* Press `up` and `down` to change the number of neighbours searched for, and `b` to switch between brute-force and cover-tree search.
+
 Usage
 ------------
 ####Initialisation
@@ -160,13 +167,6 @@ Builds the cover tree using a work-stealing fork-join. Blocks till the cover tre
 
 #####`ofxCoverTree::CoverTree<point, numeric> get_result()`
 Returns the built cover tree.
-
-Examples
-------------
-* [example-emoji](example-emoji/)
-	* This example consists of image-space k-nearest-neighbour search over 6480 emoji. Each emoji is unrolled into a feature vector of `4096` dimensions (32 * 32 * 4).
-	* Each row is one row of search results, with the leftmost emoji being the search query.
-	* Press `up` and `down` to change the number of neighbours searched for, and `b` to switch between brute-force and cover-tree search.
 
 License
 -------
