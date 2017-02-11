@@ -160,7 +160,7 @@ Merges `this` with `ct`, resulting in a cover tree containing both sets of point
 
 ----
 #####`ofxCoverTree::ParallelMake<point, numeric>(std::vector<point>& points)`
-Initialise the parallel cover tree builder.
+Construct the parallel cover tree builder.
 The following are methods of the parallel builder:
 
 #####`void compute()`
