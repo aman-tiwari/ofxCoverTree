@@ -19,7 +19,6 @@ Installation
 ------------
 Copy into your addons folder (e.g `git clone https://github.com/aman-tiwari/ofxCoverTree`).
 
-
 *Optional:* Run `make` in the downloaded folder to create the benchmark.
 
 Examples
@@ -55,12 +54,18 @@ ofxCoverTree::Default tree(item_1);
 	
 /* insert more items into the tree */
 tree.insert(item_2);
+
+/* need to call to rebuild tree after modifying */
+tree.update();
 	
 /* alternatively, can construct from a vector of points */
 std::vector<ofxCoverTree:item> items;
 items.push_back(item_1); items.push_back(item_2);
-	
+
 ofxCoverTree::Default plant(items);
+
+/* vector constructor automatically calls plant.update() for us */
+// plant.update() <- superfluous
 
 /* if the cover tree isn't performing well enough, 
  * or taking too long to build, try 
@@ -145,6 +150,9 @@ An alias for `ofxCoverTree::CoverTree<ofxCoverTree::item, float>`
 
 ----
 ##### The following are methods of the `ofxCoverTree::CoverTree` class.
+----
+#####`update()`
+Updates the tree.
 
 #####`point& nearestNeighbour(const point queryPt) const`
 Returns the nearest neighbor to `queryPt`.

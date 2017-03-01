@@ -534,6 +534,8 @@ class CoverTree {
     for (const auto& p : pList) insert(p);
 
     pList.push_back(temp);
+
+    calc_maxdist();
   }
 
   // contructor: needs atleast 1 point to make a valid covertree
@@ -553,7 +555,11 @@ class CoverTree {
     root->level = 0;
     root->maxdistUB = 0;
 
-    for (int i = begin + 1; i < end; ++i) insert(pList[i]);
+    for (int i = begin + 1; i < end; ++i) {
+      insert(pList[i]);
+    };
+
+    calc_maxdist();
   }
 
   // destructor: deallocating all memories by a post order traversal
@@ -598,6 +604,8 @@ class CoverTree {
 
     return os;
   }
+
+  void update() { return calc_maxdist(); }
 
   // find true maxdist
   void calc_maxdist() {
